@@ -3,7 +3,11 @@ Created on 10-Oct-2012
 
 @author: arun
 '''
+import logging
+
+logger = logging.getLogger('Processor.readfiles')
 class readfile:
+    
     def __init__(self, filename):
         self.filename = filename
         self.fileopen = open(self.filename,'rU')
@@ -18,10 +22,7 @@ class readfile:
             try:
                 domain, scraper_internal_dns, scraper_ip, unixtime, whois_text, dig_text, failed  = lines.split("\t")
                 data[domain.lower()] = [self.split_whois_text(whois_text),unixtime]
-#                print domain, scraper_internal_dns, scraper_ip, unixtime, self.split_whois_text(whois_text), dig_text, failed
-                
-            except Exception, e:
-                print "Couldn't parse: " + lines
-                print e
+            except Exception:
+                logger.warning("Couldn't Parse:"+lines.strip())
                 continue
         return data
