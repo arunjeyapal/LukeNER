@@ -1,9 +1,0 @@
-2012-10-14 17:58:33,406 - process (43) [INFO] Data read successful
-2012-10-14 17:58:33,406 - get_key_value_entities (20) [INFO] parsing Whois text to identify words which has ':' in it
-2012-10-14 17:58:34,287 - get_key_value_entities (33) [INFO] Whois identified which has ':' colon in the text
-2012-10-14 17:58:34,291 - wrapper (17) [DEBUG] function: [process] Time:[925.276994705] ms
-2012-10-14 18:03:08,350 - process (43) [INFO] Data read successful
-2012-10-14 18:03:08,350 - identify_entities (16) [INFO] Identifying the key_value entities
-2012-10-14 18:03:08,351 - get_key_value_entities (22) [INFO] parsing Whois text to identify words which has ':' in it
-2012-10-14 18:03:09,263 - get_key_value_entities (35) [INFO] Whois identified which has ':' colon in the text
-2012-10-14 18:03:10,132 - wrapper (17) [DEBUG] function: [process] Time:[1823.85396957] ms
