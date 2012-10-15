@@ -14,9 +14,7 @@ class ner:
     
     def identify_entities(self):
         all_entities = self.get_key_value_entities()
-        for items in all_entities:
-            print items
-#        self.get_right_keyvalue_pairs(all_entities)
+        self.filter_keyvalue_pairs(all_entities)
         
     def get_key_value_entities(self):
         logger.info("parsing Whois text to identify words which has ':' in it")
@@ -31,27 +29,20 @@ class ner:
                 key_value_pair = re.search(key_value_regex, each_item, flags=re.IGNORECASE)
                 if key_value_pair:
                     try:
-                        key_value_entities.append((key_value_pair.groups()[0].strip(), key_value_pair.groups()[1]))
+                        key_value_entities.append((key_value_pair.groups()[0].strip(), key_value_pair.groups()[1].strip()))
                     except AttributeError:
-                        key_value_entities.append((key_value_pair.groups()[2].strip(), key_value_pair.groups()[3]))
+                        key_value_entities.append((key_value_pair.groups()[2].strip(), key_value_pair.groups()[3].strip()))
             all_text.append((each_domain, key_value_entities, unix_timestamp))
-        logger.info("Whois identified which has ':' colon in the text")
+        logger.info("Identified text which has ':' colon in them")
         return all_text
     
     def filter_keyvalue_pairs(self, all_entities):
-        print 'here'
-#        logger.info("Identifying the key_value entities")
-#        split_regex = u'(?<=\s)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)|'\
-#                          u'(?<=\A)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)'
-#        for each_list in all_entities:
-#            domain = each_list[0]
-#            key_value_list = each_list[1]
-#            time_stamp = each_list[2]
-#            for items in key_value_list:
-#                values = re.search(split_regex, items, flags=re.IGNORECASE)
-#                if values:
-#                    values.groups()
-            
-    
+        logger.info("Filtering key_value entities")
+        for each_list in all_entities:
+            domain, key_value_list, timestamp = each_list
+            for (key, value) in key_value_list:
+                key = re.sub(' ', '_', key,flags=re.IGNORECASE)
+                print '%s\twhois.%s\t%s'% (domain, key.lower(), timestamp), value
+                
     def write_tofile(self, domain, whois_key, whois_value, unix_timestamp):
         "hello"
