@@ -38,8 +38,8 @@ class ner:
         logger.info("Whois identified which has ':' colon in the text")
         return all_text
     
-    def get_right_keyvalue_pairs(self, all_entities):
-        'here'
+    def filter_keyvalue_pairs(self, all_entities):
+        print 'here'
 #        logger.info("Identifying the key_value entities")
 #        split_regex = u'(?<=\s)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)|'\
 #                          u'(?<=\A)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)'
