@@ -39,17 +39,18 @@ class ner:
         return all_text
     
     def get_right_keyvalue_pairs(self, all_entities):
-        logger.info("Identifying the key_value entities")
-        split_regex = u'(?<=\s)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)|'\
-                          u'(?<=\A)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)'
-        for each_list in all_entities:
-            domain = each_list[0]
-            key_value_list = each_list[1]
-            time_stamp = each_list[2]
-            for items in key_value_list:
-                values = re.search(split_regex, items, flags=re.IGNORECASE)
-                if values:
-                    values.groups()
+        'here'
+#        logger.info("Identifying the key_value entities")
+#        split_regex = u'(?<=\s)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)|'\
+#                          u'(?<=\A)([\s\w^\d]+?)\:([^/]+[\s\w\W]+)(?=[\s\.,]|\Z)'
+#        for each_list in all_entities:
+#            domain = each_list[0]
+#            key_value_list = each_list[1]
+#            time_stamp = each_list[2]
+#            for items in key_value_list:
+#                values = re.search(split_regex, items, flags=re.IGNORECASE)
+#                if values:
+#                    values.groups()
             
     
     def write_tofile(self, domain, whois_key, whois_value, unix_timestamp):
