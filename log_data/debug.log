@@ -1,4 +1,0 @@
-2012-10-15 12:32:17,140 - process (43) [INFO] Data read successful
-2012-10-15 12:32:17,141 - get_key_value_entities (22) [INFO] parsing Whois text to identify words which has ':' in it
-2012-10-15 12:32:18,198 - get_key_value_entities (38) [INFO] Whois identified which has ':' colon in the text
-2012-10-15 12:32:19,060 - wrapper (17) [DEBUG] function: [process] Time:[1986.88197136] ms
